@@ -2,6 +2,11 @@
 
 A Python application that connects to a PostgreSQL database and runs CRUD operations on a `students` table.
 
+## Youtube Video Link
+
+- https://www.youtube.com/watch?v=dVi02GWzjkc
+
+
 ## Project Structure
 
 ```

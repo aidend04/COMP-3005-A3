@@ -18,14 +18,14 @@ def main():
     getAllStudents(conn)
 
     # attempt to add student with same email as before to show unique error holds
-    addStudent(conn, "Bob", "Duncan", "aidendsouza@cmail.carleton.ca" "2026-11-14")
+    addStudent(conn, "Bob", "Duncan", "aidendsouza@cmail.carleton.ca", "2026-11-14")
     getAllStudents(conn)
 
-    # update student email example
+    # # update student email example
     updateStudentEmail(conn, 4, "aiden@example.com")
     getAllStudents(conn)
 
-    # update student email of student 2 with the example email from above to show error for unique email
+    # update student email of student 3 with the example email from above to show error for unique email
     updateStudentEmail(conn, 3, "aiden@example.com")
     getAllStudents(conn)
 
@@ -51,6 +51,7 @@ def sqlConnection():
         return conn
     except psycopg2.OperationalError as e:
         print(f"Failed to connect to the database: {e}")
+        return
 
 
 def getAllStudents(conn):
@@ -76,9 +77,11 @@ def addStudent(conn, first_name, last_name, email, enrollment_date):
     except errors.UniqueViolation:
         conn.rollback()
         print(f"{email} is already in database, all emails must be unique")
+        return
     except psycopg2.Error as e:
         conn.rollback()
         print(f"add student failed with error: {e}")
+        return
 
 
 def updateStudentEmail(conn, student_id, new_email):
@@ -94,9 +97,11 @@ def updateStudentEmail(conn, student_id, new_email):
     except errors.UniqueViolation:
         conn.rollback()
         print(f"{new_email} is already in database, all emails must be unique")
+        return
     except psycopg2.Error as e:
         conn.rollback()
         print(f"update student failed with error: {e}")
+        return
 
 
 def deleteStudent(conn, student_id):
@@ -112,6 +117,7 @@ def deleteStudent(conn, student_id):
     except psycopg2.Error as e:
         conn.rollback()
         print(f"update student failed with error: {e}")
+        return
 
 
 if __name__ == "__main__":

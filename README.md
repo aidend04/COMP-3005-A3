@@ -31,13 +31,13 @@ COMP-3005-A3/
 
 Create a database named `a3_db`:
 
-(in pgAdmin: right-click **Databases** → **Create** → **Database...** and name it `a3_db`.)
+- In pgAdmin: right-click **Databases** → **Create** → **Database...** and name it `a3_db`.
 
 ### 2. Create the table and insert the sample data
 
-From the project root, run the two SQL scripts in order:
+From the project root, use the two SQL scripts in order:
 
-(in pgAdmin: open the Query Tool on `a3_db`, then open and run `db/ddl.sql` followed by `db/a3_q1_insert.sql` or copy paste each one into the query tool in order.)
+- In pgAdmin: open the Query Tool on `a3_db`, then copy the contents of `db/ddl.sql` into the query tool and click `F5` to run. Then copy the contents of `db/a3_q1_insert.sql` into the query tool and click `f5` to run.)
 
 This creates the `students` table and inserts three students (IDs 1–3).
 

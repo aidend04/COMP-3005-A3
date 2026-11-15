@@ -12,30 +12,43 @@ def main():
 
     # get all students example
     getAllStudents(conn)
+    print()
 
     # add student example
     addStudent(conn, "Aiden", "Dsouza", "aidendsouza@cmail.carleton.ca", "2026-11-14")
+    print()
     getAllStudents(conn)
+    print()
 
     # attempt to add student with same email as before to show unique error holds
     addStudent(conn, "Bob", "Duncan", "aidendsouza@cmail.carleton.ca", "2026-11-14")
+    print()
     getAllStudents(conn)
+    print()
 
     # # update student email example
     updateStudentEmail(conn, 4, "aiden@example.com")
+    print()
     getAllStudents(conn)
+    print()
 
     # update student email of student 3 with the example email from above to show error for unique email
     updateStudentEmail(conn, 3, "aiden@example.com")
+    print()
     getAllStudents(conn)
+    print()
 
     # delete student example
     deleteStudent(conn, 4)
+    print()
     getAllStudents(conn)
+    print()
 
     # delete a student who doesnt exist to show error for wrong student id
     deleteStudent(conn, 400)
+    print()
     getAllStudents(conn)
+    print()
 
 
 def sqlConnection():
